@@ -55,7 +55,10 @@ def home():
 @app.route('/predict', methods = ['POST'])
 def predict():
     if request.method == 'POST':
-        features = [float(x) for x in request.form.values()]
+        try:
+            features = [float(x) for x in request.form.values()]
+        except ValueError:
+            return "Invalid input data", 400
         final_features = [np.array(features)]
         prediction = model.predict(final_features)
         outcome = round(prediction[0], 2)
@@ -66,10 +69,13 @@ def predict():
 def predict_api():
     if request.method == 'POST':
         data = request.get_json(force=True)
-        prediction = model.predict([np.array(list(data.values()))])
+        try:
+            prediction = model.predict([np.array(list(data.values()))])
+        except ValueError:
+            return "Invalid input data", 400
         output = prediction[0]
         return jsonify(output)
     return "Invalid Method", 405
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
