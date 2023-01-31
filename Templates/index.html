@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="assets/code.js"></script>
+    <title>Salary Prediction</title>
+</head>
+
+<body class="bg-light" data-new-gr-c-s-check-loaded="14.1064.0" data-gr-ext-installed="">
+    <a href="index.html"><img class="logo" src="assets/final_v1.png" alt=""></a>
+    <div class="container main">
+        <div class="jumbotron" id="holder">
+            <div style="margin-top:50px;">
+                <h1>Salary Prediction</h1>
+                <!-- We will create a form that will take our input data -->
+
+                <form action="{{ url_for('predict')}}" method="post">
+                    <!-- <input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
+            <input type="text" name="Glucose" placeholder="Glucose" required="required" />
+            <input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" />
+            <input type="text" name="SkinThickness" placeholder="SkinThickness" required="required" />
+            <input type="text" name="Insulin" placeholder="Insulin" required="required" />
+            <input type="text" name="BMI" placeholder="BMI" required="required" />
+            <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction"
+                required="required" />
+            <input type="text" name="Age" placeholder="Age" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button> -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="test_score" class="form-control" placeholder="test_score" type="text">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="interview_score" class="form-control" placeholder="interview_score" type="text">
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Your Prediction </button>
+                    </div> <!-- form-group// -->
+
+                </form>
+                </article>
+                <h3>Here is your salary prediction:</h3>
+
+                <h3>{{ prediction_text }}</h3>
+            </div>
+</body>
+
+</html>
